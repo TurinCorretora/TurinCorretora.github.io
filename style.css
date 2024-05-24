@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+
+/* header */
+
+header {
+    background-color: #070707;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    gap: 80vh;
+    height: 18vh;
+    
+
+    .logo img {
+        width: 80px;
+        margin-left: 30px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 40;
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 20px;
+ 
+        }
+
+        a {
+            font-size: large;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+    }
+}
+
+.corpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #c45151;
+
+}
+
+/* header end */
+
+
+/* content start */
+
+
+    
+.interface {
+    
+    margin: 0 auto;
+  }
+  
+.flex {
+  display: flex;
+}
+
+.btn-contato button {
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #000000;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #fff;
+}
+
+button:hover {
+  box-shadow: 0px 0px 8px #bdbbbb;
+  transform: scale(1.05);
+}
+
+h2.titulo {
+        color: #fff;
+        font-size: 38px;
+        text-align: center;
+        padding: 50px;
+}
+  
+h2.titulo span {
+      color: #2e0264;
+}
+.sobre {
+    background-color: lightblue;
+    width:  100%;
+    
+  
+    p{
+        width: 900px;
+        text-align: justify;
+    }
+} 
+
+.title {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h4 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #070707;
+            font-weight: 500;
+        }
+}
+.efeito-txt-topo {
+        visibility: hidden;
+}
+
+.cards {
+        display: flex;
+        /* background-color: aqua; */
+        width: 100%;
+        .card {
+            margin: 2vw 2vw;
+            border: 1px solid rgba(0, 0, 0, 0.589);
+            width: 20vw;
+            height: 45vh;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(136, 21, 21, 0.3) ;
+            box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            img {
+                width: 10vw;
+                border-radius: 10px;
+            }
+            p {
+                color: rgb(0, 0, 0);
+                font-size: 1rem;
+                width: 200px;
+            }
+            
+            a {
+                text-decoration: none;
+                color: white;
+                background-color: #09b5d3;
+                padding: 10px 20px;
+                border-radius: 10px;
+                margin: 10px;
+            }
+
+            a:hover {
+                background-color: #0d6efd;
+            }
+
+            
+
+        }
+}
+
+
+
+
+
+section.apresentacao {
+    height: 60vh;
+}
+  
+  section.apresentacao .interface .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+  }
+  
+  .topo-do-site .txt-topo-site h1 {
+    color: #000000;
+    font-size: 42px;
+    line-height: 40px;
+  }
+  
+  .topo-do-site h1 span {
+    color: #2e0264;
+  }
+  
+  .apresentacao .txt-topo-site p {
+    color: #000000;
+    margin: 40px 0;
+  }
+  
+  .apresentacao .img-topo-site img {
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    width: 30vh;
+  }
+  
+  @keyframes flutuar {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: 30px;
+    }
+  }
