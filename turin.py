@@ -11,7 +11,7 @@ app.secret_key = 'sua_chave_secreta_aqui'  # Adicione uma chave secreta para as 
 def form():
     return render_template('index.html')
 
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for # type: ignore
 from config import email, senha
 import smtplib
 from email.mime.text import MIMEText
