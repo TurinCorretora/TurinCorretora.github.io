@@ -84,7 +84,14 @@ def send_email(mensagem):
         print(f"Erro ao enviar email: {e}")
         return False
 
+
+@app.route('/individual')
+def individual():
+    return render_template('individual.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
 

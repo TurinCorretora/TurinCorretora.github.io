@@ -11,9 +11,34 @@
 
   /* Varied --- */ 
   --font-base: "Poppins";
-  --font-size-subtitle: 1rem;
+  --font-size-subtitle: 1.2rem;
   --weight-subtitles: 400;
   --black: #000
+}
+
+/* Estilizar a barra de rolagem completa */
+::-webkit-scrollbar {
+  width: 10px; /* Largura da barra de rolagem */
+  height: 5px; /* Altura da barra de rolagem (para rolagem horizontal) */
+}
+
+/* Estilizar o fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cor de fundo da trilha */
+  border-radius: 10px; /* Borda arredondada */
+}
+
+/* Estilizar o polegar (a parte que se move) */
+::-webkit-scrollbar-thumb {
+  background: #0080ff; /* Cor do polegar */
+  border-radius: 10px; /* Borda arredondada */
+  width: 3px;
+  height: 3px;
+}
+
+/* Estilizar o polegar ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #2891f9; /* Cor do polegar ao passar o mouse */
 }
 
 
@@ -29,6 +54,7 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -186,7 +212,6 @@ body {
 
   
   .ulNavIndexThree li a {
-    visibility: hidden;
     color: var(--color-primary-font);
     background-color: var(--bg-second);
     font-size: var(--font-size-subtitle);
@@ -194,11 +219,14 @@ body {
     border-radius: 20px;
     text-decoration: none;
     transition: 0.1s ease-in;
+    
   }
   
   .ulNavIndexThree li a:hover {
     transition: 0.1s ease-in;
+    transform: scale(1.05);
     background-color: var(--bg-second-light);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   }
 }
 
@@ -216,7 +244,6 @@ body {
 /* topo side start */
 
 .apresentacao {
-  
   
 
  
@@ -340,6 +367,107 @@ body {
 /* sobre start */
 
 
+/* cards */
+
+.trabalhamoscom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  flex-direction: column;
+  
+.title {
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to left, #000000, #001838, #090144);
+    
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  
+}
+  
+}
+
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px ;
+  margin-bottom: 80px;
+  /* background-color: aqua; */
+  width: 100%;
+
+  .card {
+    color: #000000;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-color: rgba(255, 255, 255, 0.285);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.518);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     max-height: 900px;
+    
+
+      img {
+        
+          max-width: 350px;
+          border-radius: 10px;
+      }
+      
+      p {
+          font-size: 1.1rem;
+          font-weight: 500;
+          margin-top: 10px;
+          max-width: 350px;
+      }
+
+      a {
+        background-color: #0043EF;
+        text-decoration: none;
+        
+        margin:30px 0;
+        padding: 10px;
+      }
+      
+      
+      .info {
+        display: flex;
+        flex-direction: column;
+        
+        a{
+          border-radius: 5px;
+          color: white;
+          transition: all .1s ease-in-out;
+        }
+      }
+      
+              a:hover {
+                background-color: #3266e7;
+                transform: scale(1.05);
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+              }
+      
+
+
+
+  }
+}
+
+
+
+/* cards end */
   
 
 /* carrossel start */
@@ -461,12 +589,195 @@ body {
 /* carrossel end */
 
 
+
+
+/* formulário Cotação */
+
+.contato {
+  color: #000000;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  flex-direction: column;
   
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to left, #000000, #001838, #090144);
+    
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  
+  p {
+    text-align: justify;
+    width: 70vw;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--black);
+    margin-bottom: 40px;
+  }
+  
+  form {
+    background-color: white;
+    border-radius: 15px;
+    padding: 150px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 800px;
+    max-width:900px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  
+    label {
+      color: #000000;
+    }
+    
+    .form {
+      display: flex;
+      gap: 90px;
+
+    
+      .dados {
+        display: flex;
+        flex-direction: column;
+        input {
+         
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #000000;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+       -webkit-appearance: none;
+      }
+
+      }
+
+      .opcoes {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
+        
+        input {
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #000000;
+        }
+
+        
+
+      }
+
+    }
+    
+    
+     
+    input[type="submit"] {
+     
+      border: none;
+      min-width: 60px;
+      max-width:  100px;
+      background-color: var(--bg-second);
+      color: var(--color-primary-font);
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      border-radius: 3px;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: var(--bg-second-light);
+    }
+  }
+
+
+  }
+
+
+/* formulário Cotação End */
+
+  
+
+
+
+/* whatsapp */
+
+
+
+/* Estilo geral do botão */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10011;
+}
+
+/* Estilo da imagem do botão */
+.whatsapp-button img {
+  width: 70px;
+  height: 70px;
+}
+
+/* Estilo do tooltip */
+.whatsapp-tooltip {
+  visibility: hidden;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  border-radius: 5px 5px 0px 5px;
+  padding: 5px;
+  position: absolute;
+  bottom: 55px; /* Ajuste conforme necessário */
+  right: -60px; /* Ajuste conforme necessário */
+  width: 200px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 999;
+}
+
+/* Exibir o tooltip ao passar o mouse */
+.whatsapp-button:hover .whatsapp-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Animação ao passar o mouse sobre o botão */
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+
+
+/* whatsapp end */
 
 /* footer start */
 
 .footer {
-  margin-top: 100px;
+  margin-top: 200px;
   width: 100%;
   display: flex;
   justify-content: center;

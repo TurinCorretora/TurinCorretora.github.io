@@ -21,6 +21,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
+
     <!-- link font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +41,7 @@
     <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
     <title>Turin Corretora</title>
 </head>
-<body class="bodyturin">
+<div class="bodyturin">
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             <ul>
@@ -71,21 +72,21 @@
             </ul>
             <ul class="ulNavIndexTwo">
                 <li>
-                    <a href="#">Início</a>
+                    <a href="/">Início</a>
                 </li>
                 <li>
-                    <a href="#">Sobre</a>
+                    <a href="#quemsomos">Sobre</a>
                 </li>
                 <li>
                     <a href="#">Contato</a>
                 </li>
                 <li>
-                    <a href="#">Projetos</a>
+                    <a href="#trabalhamoscom">Serviços</a>
                 </li>
             </ul>
             <ul class="ulNavIndexThree">
                 <li>
-                   
+                   <a href="www.wa.me/5577988461383" target="_blank" rel="noopener noreferrer">Aviso Sinistro</a>
                 </li>
             </ul>
         </div>
@@ -109,32 +110,165 @@
 
     </main>
 
-    <div class="quemsomos">
+    <div class="quemsomos" id="quemsomos"  data-aos="fade-up" data-aos-duration="900"  data-aos-delay="100">
         <div >
             <h1>Quem somos?</h1>
             <p>A Turin Corretora é uma empresa que atua no mercado de seguros e planos de saúde, com o objetivo de oferecer as melhores opções para você e sua família. Nossa missão é garantir a segurança e o bem-estar de nossos clientes, oferecendo produtos de qualidade e com um atendimento personalizado. Contamos com uma equipe de profissionais qualificados e experientes, que estão sempre prontos para te ajudar a encontrar a melhor solução para as suas necessidades. Venha nos conhecer e descubra como podemos te ajudar a proteger o que é mais importante para você.</p>
         </div>
     </div>
 
-    <div class="fieldVixioContentThree">
+
+    <div class="trabalhamoscom"  id="trabalhamoscom" data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="100">
+        <div class="title">
+            <h2>Saúde</h2>
+        </div>
+    
+
+        
+        <div class="cards">
+            <div class="card">
+                        <div>
+                            <img src="/static/img/saude.jpg" alt="">
+                        </div>
+                        <div  class="info">
+                            <h2>Plano Individual</h2>
+                            <p>Contrate o melhor seguro saúde para você e sua familia</p>
+                            <a href="#">Saiba mais</a>
+                        </div>
+            </div>
+                <div class="card">
+                    <div>
+                        <img src="/static/img/odonto.jpg" alt="">
+                    </div>
+
+                        <div class="info">
+                             <h2>Plano Coletivo por Adesão</h2>
+                             <p>Contrate o melhor plano de saude para você e sua familia</p>
+                             <a href="#">Saiba mais</a>
+                        </div>
+                </div>
+            
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+            
+                <div class="info">
+                    <h2>Plano Empresarial</h2>
+                    <p>Contrate o melhor plano odontológico para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+      
+
+
+
+
+
+
+
+    <div class="trabalhamoscom"  data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="100">
+        <div class="title">
+            <h2>Seguros</h2>
+        </div>
+    
+
+        
+        <div class="cards">
+            <div class="card">
+                        <div>
+                            <img src="/static/img/saude.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h2>Seguro Saúde</h2>
+                            <p>Contrate o melhor seguro saúde para você e sua familia</p>
+                            <a href="#">Saiba mais</a>
+                        </div>
+            </div>
+            <div class="card">
+                    <div>
+                        <img src="/static/img/odonto.jpg" alt="">
+                    </div>
+                
+                    <div  class="info">
+                    <h2>Seguro Veicular</h2>
+                    <p>Contrate o melhor plano de saude para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+            
+                <div  class="info">
+                    <h2>Seguro Residêncial</h2>
+                    <p>Contrate o melhor plano odontológico para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+            
+                <div class="info">
+                    <h2>Seguro Empresarial</h2>
+                    <p>Contrate o melhor seguro saúde para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+
+                <div  class="info">
+                    <h2>Seguro de Mercadoria</h2>
+                    <p>Contrate o melhor plano de saude para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- <div class="fieldVixioContentThree">
         <div id="carrossel">
             <h1>Nossos Planos</h1>
             <div class="slide-content">
-                <input type="radio" name="btn-radio" id="radio1">
-                <input type="radio" name="btn-radio" id="radio2">
-                <input type="radio" name="btn-radio" id="radio3">
+                <input type="checkbox" name="btn-checkbox" id="checkbox1">
+                <input type="checkbox" name="btn-checkbox" id="checkbox2">
+                <input type="checkbox" name="btn-checkbox" id="checkbox3">
             
                 <div class="slide-box primeiro">
                     <img class="img-desktop" src="/static/img/201.png" alt="slide1">
-                    <!-- <img src="/static/fotos/Logo_drogasil.png" alt="slide1" class="img-mobile"> -->
+                    
                 </div>
                 <div class="slide-box">
                     <img class="img-desktop" src="/static/img/201.png" alt="slide1">
-                    <!-- <img src="/static/fotos/paguemenos.png" alt="slide1" class="img-mobile"> -->
                 </div>
                 <div class="slide-box">
                     <img class="img-desktop" src="/static/img/201.png"  alt="slide1">
-                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8R1XAErzaHg6NAOA8MJvuQuVC8qPsaGnGHTWsnWcthw&s" alt="slide1" class="img-mobile"> -->
                 </div>
             
                 <div class="nav-auto">
@@ -144,47 +278,87 @@
                 </div>
             
                 <div class="nav-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
+                    <label for="checkbox1" class="manual-btn"></label>
+                    <label for="checkbox2" class="manual-btn"></label>
+                    <label for="checkbox3" class="manual-btn"></label>
                 </div>
             </div>
         </div>
+    </div> -->
+
+   
+
+    
+
+
+
+<div class="contato" data-aos="fade-up"
+data-aos-duration="900"
+data-aos-delay="100">
+    <div class="fieldContentFive">
+        <h1>Contato</h1>
+        <p>Entre em contato conosco e solicite uma cotação personalizada para você e sua família. Estamos à disposição para te ajudar a encontrar a melhor solução para as suas necessidades. Preencha o formulário abaixo ou entre em contato por telefone ou WhatsApp. Estamos ansiosos para te atender!</p>
     </div>
+    <div class="fieldContentSix">
+        <form action="/submit" method="post">
+            <div class="form">
+                <div class="dados">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                   
 
-    <div>
-        <h1>Solicitação de Cotação</h1>
-    <form action="/submit" method="post">
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
+                    <label for="cpf">CPF ou CNPJ</label>
+                    <input type="number">
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-        <label for="telefone">Telefone:</label><br>
-        <input type="tel" id="telefone" name="telefone" required><br><br>
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+               
+                    <label for="whatsapp">WhatsApp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
 
-        <label for="idade">Idade:</label><br>
-        <input type="number" id="idade" name="idade" required><br><br>
+                    <label for="idade">Idade:</label>
+                    <input type="text" id="idade" name="idade" required>
 
-        <label for="cidade">Cidade:</label><br>
-        <input type="text" id="cidade" name="cidade" required><br><br>
-
-        <label for="planos">Selecione os planos desejados:</label><br>
-        <input type="checkbox" id="plano1" name="planos" value="Plano 1"> Plano 1<br>
-        <input type="checkbox" id="plano2" name="planos" value="Plano 2"> Plano 2<br>
-        <input type="checkbox" id="plano3" name="planos" value="Plano 3"> Plano 3<br><br>
-
-        <label for="abrangencia">Tipo de Abrangência:</label><br>
-        <input type="radio" id="regional" name="abrangencia" value="Regional" required> Regional<br>
-        <input type="radio" id="estadual" name="abrangencia" value="Estadual" required> Estadual<br>
-        <input type="radio" id="nacional" name="abrangencia" value="Nacional" required> Nacional<br><br>
-
-        <input type="submit" value="Enviar">
-    </form>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                </div>
+                <div class="opcoes">
+                    <label for="planos">Selecione os planos desejados:</label>
+                    Unimed Sudoeste<input type="checkbox" class="planos"  id="plano1" name="planos" value=" ">  
+                    União Médica<input type="checkbox" class="planos" id="plano2" name="planos" value=" ""> 
+                    Preserve Saúde<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    Brasil Saúde<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    Bradesco<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    SulAmerica<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    
+                    <label for="abrangencia">Tipo de Abrangência:</label>
+                    Regional<input type="checkbox" id="regional" name="abrangencia" value="Regional" required> 
+                    Estadual<input type="checkbox" id="estadual" name="abrangencia" value="Estadual" required> 
+                    Nacional<input type="checkbox" id="nacional" name="abrangencia" value="Nacional" required> 
+                    <input type="submit" value="Enviar">
+                </div>
+                <div class="informações">
+                    Observações <input type="text" id="informações" name="informações">
+                </div>
+                
+            </div>
+        </form>
     </div>
+</div>
 
 
+
+    <div class="whatsapp-button" id="whatsapp-button">
+        <div class="whatsapp-tooltip" id="whatsapp-tooltip">
+            Olá, gostaria de uma cotação?
+        </div>
+        <a href="https://wa.me/5577988586720" target="_blank">
+            <img  src="/static/img/whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
 
     <footer class="footer">
         <div class="subFooter">
@@ -209,6 +383,12 @@
         </div>
 
     </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script>
+        AOS.init();
+    </script>
 
 
     
