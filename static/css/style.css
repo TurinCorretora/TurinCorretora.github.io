@@ -173,7 +173,7 @@ body {
 
   .contentNavIndex {
     display: flex;
-    height: 25vh;
+    height: 27vh;
     width: 90%;
     border-bottom: 1px solid rgba(0,0,0,0.5);
     justify-content: space-between;
@@ -280,12 +280,12 @@ body {
       color: var(--color-primary-font);
       cursor: pointer;
       background-color: #001838;
-      margin: 15x ;
+      margin: 15px ;
       border-radius: 10px;
       align-items: center;
       display: flex;
       justify-content: center;
-      height: 6vh;
+      height: 40px;
       width: 15vw;
       transition: .5s all;
     }
@@ -417,13 +417,15 @@ body {
      justify-content: center;
      align-items: center;
      text-align: center;
-     max-height: 900px;
+     max-height: 720px;
+     max-width: 380px;
     
 
       img {
         
-          max-width: 350px;
+          max-width: 300px;
           border-radius: 10px;
+          max-height:200px;
       }
       
       p {
@@ -756,7 +758,7 @@ body {
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  z-index: 999;
+  z-index: -9;
 }
 
 /* Exibir o tooltip ao passar o mouse */

@@ -1,86 +1,388 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-bre">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/individual.css">
+
+      <!-- slide -->
+      <script src="/static/js/slide.js" defer></script>
+      <!-- slide end -->
+
+    <!-- Boostrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Animate Css -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <!-- Aos Animate -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
-       <!-- links font -->
-        <!-- poppins -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <!-- poppins end -->
 
+    <!-- link font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <!-- link font end -->
 
+    <!-- link css -->
+    <link rel="stylesheet" href="/static/css/style.css">
 
-
-    <!-- links font end -->
-
-
-<!-- bootstrap icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-
-<!-- bootstrap icons end -->    
-
-
-    <title>Plano de Saúde</title>
+    <!-- end link css -->
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- <script src="reveal.js" defer></script> -->
+    <!-- scroll reveal end -->
+    
+    <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
+    <title>Turin Corretora</title>
 </head>
-<body>
-    <div class="main">
-        <div class="capa">
-            <div class="arrowdown">
-                <i class="bi bi-arrow-down"></i>
-            </div>
+<div class="bodyturin">
+   
 
-            <div class="overlay"></div>
-            
-            <div class="content">
-                <div class="capa-texto">
-                    <h1>Plano de Saúde Individual</h1>
-                    <p>Sua saúde é nossa prioridade. Descubra o plano individual perfeito para você.</p>
-                </div>
-
-                <div class="buttons">
-                    <!-- <a href="/faleconosco" class="btn primary">Quero Contratar</a> -->
-                    <a href="https://wa.me/5577988461383/?text=Ol%C3%A1!%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20saude%20Individual." target="_blank" class="btn secondary">Fale Conosco</a>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="definicao">
-            <h2>O que é o Plano de Saúde Individual?</h2>
-            <p>Planos de saúde individuais são opções de cobertura médica projetadas especificamente para atender às necessidades de um único indivíduo ou família. Eles oferecem flexibilidade e liberdade de escolha no acesso a serviços de saúde.</p>
-
-        </div>
-        <div class="carrossel">
-            <h2>Nossos Planos de Saúde</h2>
-            <div class="carousel">
-                <div class="carousel-container">
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel1.png" alt="Image 1"></div>
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel2.png" alt="Image 2"></div>
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel3.png" alt="Image 3"></div>
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel4.png" alt="Image 4"></div>
-                    <!-- <div class="carousel-slide"><img src="/static/img/individual/carrossel5.png" alt="Image 5"></div> -->
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel6.png" alt="Image 6"></div>
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel7.png" alt="Image 7"></div>
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel8.png" alt="Image 8"></div>
-                    <div class="carousel-slide"><img src="/static/img/individual/carrossel9.png" alt="Image 9"></div>
-                </div>
-        
-             </div>
-        </div>
-         <script src=""></script>
-
-
-
+    <div class="backgroundCircles">
+        <div class="bgCirclesOne animate__animated animate__fadeIn" style="animation-delay: 2000ms; animation-duration: 5s;"></div>
+        <!-- <div class="bgCirclesTwo  animate__animated animate__fadeIn" style="animation-delay: 3000ms; animation-duration: 5s;" ></div>
+        <div class="bgCirclesThree  animate__animated animate__fadeIn" style="animation-delay: 4000ms; animation-duration: 5s;"></div>
+        <div class="bgCirclesFour"></div>
+        <div class="bgCirclesFive"></div>
+        <div class="bgCirclesSix"></div>
+        <div class="bgCirclesSeven"></div> -->
 
     </div>
+
+    <nav class="navIndex">
+        <div class="contentNavIndex">
+            <ul class="ulNavIndexOne">
+                <li>
+                    <img src="/static/img/logo.png" alt="" >
+                </li>
+            </ul>
+            <ul class="ulNavIndexTwo">
+                <li>
+                    <a href="/">Início</a>
+                </li>
+                <li>
+                    <a href="#quemsomos">Sobre</a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5577988461383">Contato</a>
+                </li>
+                <li>
+                    <a href="#trabalhamoscom">Serviços</a>
+                </li>
+            </ul>
+            <ul class="ulNavIndexThree">
+                <li>
+                   <a href="https://wa.me/5577988461383" target="_blank" rel="noopener noreferrer">Aviso Sinistro</a>
+                </li>
+            </ul>
+        </div>
+        
+    </nav>
+    
+    <main class="apresentacao">
+                <div class="fieldContentOne">
+                    <div class="fieldContentTwo animate__animated animate__fadeIn" style="animation-delay: 1000ms; animation-duration: 1s;">
+                        <h1>TURIN</h1>
+                        <p>Sua segurança, nossa prioridade: Tranquilidade para você e sua família. Proteja o que mais importa e viva com a segurança que você merece.</p>
+                        <a href="https://wa.me/5577988461383" target="_blank"> Entre agora em Contato</a>
+                    </div>
+                    
+                    <div class="logoMain animate__animated animate__fadeIn" style="animation-delay: 1000ms; animation-duration: 1s;">
+                        <img src="/static/img/logo.png" alt="">
+                    </div>
+                    
+                </div>
+                
+
+    </main>
+
+    <div class="quemsomos" id="quemsomos"  data-aos="fade-up" data-aos-duration="900"  data-aos-delay="100">
+        <div >
+            <h1>Quem somos?</h1>
+            <p>A Turin Corretora é uma empresa que atua no mercado de seguros e planos de saúde, com o objetivo de oferecer as melhores opções para você e sua família. Nossa missão é garantir a segurança e o bem-estar de nossos clientes, oferecendo produtos de qualidade e com um atendimento personalizado. Contamos com uma equipe de profissionais qualificados e experientes, que estão sempre prontos para te ajudar a encontrar a melhor solução para as suas necessidades. Venha nos conhecer e descubra como podemos te ajudar a proteger o que é mais importante para você.</p>
+        </div>
+    </div>
+
+
+    <div class="trabalhamoscom"  id="trabalhamoscom" data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="100">
+        <div class="title">
+            <h2>Saúde</h2>
+        </div>
+    
+
+        
+        <div class="cards">
+            <div class="card">
+                        <div>
+                            <img src="/static/img/saude.jpg" alt="">
+                        </div>
+                        <div  class="info">
+                            <h2>Plano Individual</h2>
+                            <p>Contrate o melhor seguro saúde para você e sua familia</p>
+                            <a href="/individual.html">Saiba mais</a>
+                        </div>
+            </div>
+                <div class="card">
+                    <div>
+                        <img src="/static/img/coletivo.jpg" alt="">
+                    </div>
+
+                        <div class="info">
+                             <h2>Plano Coletivo por Adesão</h2>
+                             <p>Contrate o melhor plano de saude para você e sua familia</p>
+                             <a href="/individual.html">Saiba mais</a>
+                        </div>
+                </div>
+            
+            <div class="card">
+                <div>
+                    <img src="/static/img/empresarial.jpg" alt="">
+                </div>
+            
+                <div class="info">
+                    <h2>Plano Empresarial</h2>
+                    <p>Contrate o melhor plano odontológico para você e sua familia</p>
+                    <a href="/individual.html">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+      
+
+
+
+
+
+<!-- 
+
+    <div class="trabalhamoscom"  data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="100">
+        <div class="title">
+            <h2>Seguros</h2>
+        </div>
+    
+
+        
+        <div class="cards">
+            <div class="card">
+                        <div>
+                            <img src="/static/img/saude.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h2>Seguro Saúde</h2>
+                            <p>Contrate o melhor seguro saúde para você e sua familia</p>
+                            <a href="#">Saiba mais</a>
+                        </div>
+            </div>
+            <div class="card">
+                    <div>
+                        <img src="/static/img/odonto.jpg" alt="">
+                    </div>
+                
+                    <div  class="info">
+                    <h2>Seguro Veicular</h2>
+                    <p>Contrate o melhor plano de saude para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+            
+                <div  class="info">
+                    <h2>Seguro Residêncial</h2>
+                    <p>Contrate o melhor plano odontológico para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+            
+                <div class="info">
+                    <h2>Seguro Empresarial</h2>
+                    <p>Contrate o melhor seguro saúde para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src="/static/img/odonto.jpg" alt="">
+                </div>
+
+                <div  class="info">
+                    <h2>Seguro de Mercadoria</h2>
+                    <p>Contrate o melhor plano de saude para você e sua familia</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+    <!-- <div class="fieldVixioContentThree">
+        <div id="carrossel">
+            <h1>Nossos Planos</h1>
+            <div class="slide-content">
+                <input type="checkbox" name="btn-checkbox" id="checkbox1">
+                <input type="checkbox" name="btn-checkbox" id="checkbox2">
+                <input type="checkbox" name="btn-checkbox" id="checkbox3">
+            
+                <div class="slide-box primeiro">
+                    <img class="img-desktop" src="/static/img/201.png" alt="slide1">
+                    
+                </div>
+                <div class="slide-box">
+                    <img class="img-desktop" src="/static/img/201.png" alt="slide1">
+                </div>
+                <div class="slide-box">
+                    <img class="img-desktop" src="/static/img/201.png"  alt="slide1">
+                </div>
+            
+                <div class="nav-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+            
+                <div class="nav-manual">
+                    <label for="checkbox1" class="manual-btn"></label>
+                    <label for="checkbox2" class="manual-btn"></label>
+                    <label for="checkbox3" class="manual-btn"></label>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+   
+
+    
+
+
+
+<div class="contato" data-aos="fade-up"
+data-aos-duration="900"
+data-aos-delay="100">
+    <div class="fieldContentFive">
+        <h1>Contato</h1>
+        <p>Entre em contato conosco e solicite uma cotação personalizada para você e sua família. Estamos à disposição para te ajudar a encontrar a melhor solução para as suas necessidades. Preencha o formulário abaixo ou entre em contato por telefone ou WhatsApp. Estamos ansiosos para te atender!</p>
+    </div>
+    <div class="fieldContentSix">
+        <form action="/submit" method="post">
+            <div class="form">
+                <div class="dados">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                   
+
+                    <label for="cpf">CPF ou CNPJ</label>
+                    <input type="number">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+               
+                    <label for="whatsapp">WhatsApp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+
+                    <label for="idade">Idade:</label>
+                    <input type="text" id="idade" name="idade" required>
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                </div>
+                <div class="opcoes">
+                    <label for="planos">Selecione os planos desejados:</label>
+                    Unimed Sudoeste<input type="checkbox" class="planos"  id="plano1" name="planos" value=" ">  
+                    União Médica<input type="checkbox" class="planos" id="plano2" name="planos" value=" ""> 
+                    Preserve Saúde<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    Brasil Saúde<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    Bradesco<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    SulAmerica<input type="checkbox" class="planos" id="plano3" name="planos" value=" ""> 
+                    
+                    <label for="abrangencia">Tipo de Abrangência:</label>
+                    Regional<input type="checkbox" id="regional" name="abrangencia" value="Regional" required> 
+                    Estadual<input type="checkbox" id="estadual" name="abrangencia" value="Estadual" required> 
+                    Nacional<input type="checkbox" id="nacional" name="abrangencia" value="Nacional" required> 
+                    <input type="submit" value="Enviar">
+                </div>
+                <div class="informações">
+                    Observações <input type="text" id="informações" name="informações">
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+    <div class="whatsapp-button" id="whatsapp-button">
+        <div class="whatsapp-tooltip" id="whatsapp-tooltip">
+            Olá, gostaria de uma cotação?
+        </div>
+        <a href="https://wa.me/5577988586720" target="_blank">
+            <img  src="/static/img/whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="subFooter">
+            <div class="textFooter"> <h2>Turin Corretora</h2></div>
+        
+
+        
+            <ul class="ulFooterIcons">
+                <li>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://maps.app.goo.gl/GTxAqM4fYLM1a1mz5" target="_blank"><i class="bi bi-geo-alt-fill"></i></a>
+                </li>
+            </ul>
+        
+            <div class="textDescriptionFooter">
+                <p style="font-weight: 300;">Copyright © 2024 Turin Corretora -
+                        Vitória da
+                        Conquista  - All rights reserved</p>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script>
+        AOS.init();
+    </script>
+
+
     
 </body>
 </html>
