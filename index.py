@@ -11,30 +11,18 @@ app.secret_key = 'sua_chave_secreta_aqui'  # Adicione uma chave secreta para as 
 def form():
     return render_template('index.html')
 
-from flask import Flask, render_template, request, flash, redirect, url_for # type: ignore
-from config import email, senha
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-
-app = Flask(__name__)
-app.secret_key = 'sua_chave_secreta_aqui'  # Adicione uma chave secreta para as mensagens flash
-
-@app.route('/')
-def form():
-    return render_template('index.html')
-
 @app.route('/submit', methods=['POST'])
 def submit():
     nome = request.form['nome']
-    email = request.form['email']
+    email_form = request.form['email']
     telefone = request.form['telefone']
     idade = request.form['idade']
     cidade = request.form['cidade']
     planos = request.form.getlist('planos')
-    abrangencia = request.form['abrangencia']
+    abrangencia = request.form.getlist('abrangencia')
 
     planos_selecionados = ", ".join(planos)
+    abrangencia_selecionada = ", ".join(abrangencia)
     
     # Formatando o número do telefone para o link do WhatsApp
     telefone_link = f"https://wa.me/{telefone}"
@@ -43,12 +31,12 @@ def submit():
     <html>
         <body>
             <p>Nome: {nome}</p>
-            <p>Email: {email}</p>
+            <p>Email: {email_form}</p>
             <p>Telefone: <a href="{telefone_link}">{telefone_link}</a></p>
             <p>Idade: {idade}</p>
             <p>Cidade: {cidade}</p>
             <p>Planos Selecionados: {planos_selecionados}</p>
-            <p>Tipo de Abrangência: {abrangencia}</p>
+            <p>Tipo de Abrangência: {abrangencia_selecionada}</p>
         </body>
     </html>
     """
@@ -62,7 +50,7 @@ def submit():
 
 def send_email(mensagem):
     sender_email = email
-    receiver_email = email
+    receiver_email = 'turincorretora@gmail.com'
     password = senha
 
     msg = MIMEMultipart()
@@ -84,14 +72,9 @@ def send_email(mensagem):
         print(f"Erro ao enviar email: {e}")
         return False
 
-
 @app.route('/individual')
 def individual():
     return render_template('individual.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
