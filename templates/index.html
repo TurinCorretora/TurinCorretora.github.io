@@ -42,15 +42,7 @@
     <title>Turin Corretora</title>
 </head>
 <div class="bodyturin">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul>
-                {% for category, message in messages %}
-                    <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+   
 
     <div class="backgroundCircles">
         <div class="bgCirclesOne animate__animated animate__fadeIn" style="animation-delay: 2000ms; animation-duration: 5s;"></div>
@@ -135,7 +127,7 @@
                         <div  class="info">
                             <h2>Plano Individual</h2>
                             <p>Contrate o melhor seguro saúde para você e sua familia</p>
-                            <a href="#">Saiba mais</a>
+                            <a href="/individual">Saiba mais</a>
                         </div>
             </div>
                 <div class="card">
@@ -146,7 +138,7 @@
                         <div class="info">
                              <h2>Plano Coletivo por Adesão</h2>
                              <p>Contrate o melhor plano de saude para você e sua familia</p>
-                             <a href="#">Saiba mais</a>
+                             <a href="/individual">Saiba mais</a>
                         </div>
                 </div>
             
@@ -158,7 +150,7 @@
                 <div class="info">
                     <h2>Plano Empresarial</h2>
                     <p>Contrate o melhor plano odontológico para você e sua familia</p>
-                    <a href="#">Saiba mais</a>
+                    <a href="/individual">Saiba mais</a>
                 </div>
             </div>
         </div>
