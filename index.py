@@ -46,7 +46,7 @@ def submit():
     else:
         flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
 
-    return redirect(url_for('form'))
+    return redirect(url_for('individual'))
 
 def send_email(mensagem):
     sender_email = email
@@ -71,6 +71,7 @@ def send_email(mensagem):
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
         return False
+
 
 @app.route('/individual')
 def individual():

@@ -4,30 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/individual.css">
-
-
-       <!-- links font -->
-        <!-- poppins -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <!-- poppins end -->
-
-
-
-
-
-    <!-- links font end -->
-
-
-<!-- bootstrap icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-
-<!-- bootstrap icons end -->    
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
     <title>Plano de Saúde</title>
 </head>
 <body>
@@ -36,28 +19,24 @@
             <div class="arrowdown">
                 <i class="bi bi-arrow-down"></i>
             </div>
-
             <div class="overlay"></div>
-            
             <div class="content">
                 <div class="capa-texto">
                     <h1>Plano de Saúde Individual</h1>
                     <p>Sua saúde é nossa prioridade. Descubra o plano individual perfeito para você.</p>
                 </div>
-
                 <div class="buttons">
-                    <!-- <a href="/faleconosco" class="btn primary">Quero Contratar</a> -->
+                    <a href="#" class="btn primary" data-bs-toggle="modal" data-bs-target="#cotacaoModal">Faça sua Cotação</a>
                     <a href="https://wa.me/5577988461383/?text=Ol%C3%A1!%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20saude%20Individual." target="_blank" class="btn secondary">Fale Conosco</a>
                 </div>
-
             </div>
         </div>
 
         <div class="definicao">
             <h2>O que é o Plano de Saúde Individual?</h2>
             <p>Planos de saúde individuais são opções de cobertura médica projetadas especificamente para atender às necessidades de um único indivíduo ou família. Eles oferecem flexibilidade e liberdade de escolha no acesso a serviços de saúde.</p>
-
         </div>
+
         <div class="carrossel">
             <h2>Nossos Planos de Saúde</h2>
             <div class="carousel">
@@ -66,21 +45,117 @@
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel2.png" alt="Image 2"></div>
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel3.png" alt="Image 3"></div>
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel4.png" alt="Image 4"></div>
-                    <!-- <div class="carousel-slide"><img src="/static/img/individual/carrossel5.png" alt="Image 5"></div> -->
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel6.png" alt="Image 6"></div>
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel7.png" alt="Image 7"></div>
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel8.png" alt="Image 8"></div>
                     <div class="carousel-slide"><img src="/static/img/individual/carrossel9.png" alt="Image 9"></div>
                 </div>
-        
-             </div>
+            </div>
         </div>
-         <script src=""></script>
-
-
-
-
     </div>
-    
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="cotacaoModal" tabindex="-1" aria-labelledby="cotacaoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cotacaoModalLabel">Faça sua Cotação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/submit" method="post">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome:</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" required oninput="limitInput(this)">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone:</label>
+                            <input type="tel" class="form-control" id="telefone" name="telefone" minlength="11" maxlength="11" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="whatsapp" class="form-label">WhatsApp:</label>
+                            <input type="tel" class="form-control" id="whatsapp" name="whatsapp" minlength="11" maxlength="11" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="idade" class="form-label">Idade:</label>
+                            <input type="text" class="form-control" id="idade" name="idade" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade" name="cidade" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="planos" class="form-label">Selecione os planos desejados:</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="plano1" name="planos" value="Unimed Sudoeste">
+                                <label class="form-check-label" for="plano1">Unimed Sudoeste</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="plano2" name="planos" value="União Médica">
+                                <label class="form-check-label" for="plano2">União Médica</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="plano3" name="planos" value="Preserve Saúde">
+                                <label class="form-check-label" for="plano3">Preserve Saúde</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="plano4" name="planos" value="Brasil Saúde">
+                                <label class="form-check-label" for="plano4">Brasil Saúde</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="plano5" name="planos" value="Bradesco">
+                                <label class="form-check-label" for="plano5">Bradesco</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="plano6" name="planos" value="SulAmerica">
+                                <label class="form-check-label" for="plano6">SulAmerica</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="abrangencia" class="form-label">Tipo de Abrangência:</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="regional" name="abrangencia" value="Regional" >
+                                <label class="form-check-label" for="regional">Regional</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="estadual" name="abrangencia" value="Estadual" >
+                                <label class="form-check-label" for="estadual">Estadual</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="nacional" name="abrangencia" value="Nacional" >
+                                <label class="form-check-label" for="nacional">Nacional</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="informacoes" class="form-label">Observações:</label>
+                            <textarea class="form-control" id="informacoes" name="informacoes" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function limitInput(element) {
+    element.value = element.value.replace(/\D/, ''); // Remove qualquer caractere não numérico
+    if (element.value.length > 11) {
+        element.value = element.value.slice(0, 11); // Limita o comprimento a 11 caracteres
+    }
+}
+
+    </script>
 </body>
 </html>
