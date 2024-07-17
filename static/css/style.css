@@ -382,8 +382,10 @@ nav {
      align-items: center;
      text-align: center;
      max-height: 720px;
+     
+     min-height: 500px;
      max-width: 380px;
-    
+     min-width: 380px;
 
       img {
         
