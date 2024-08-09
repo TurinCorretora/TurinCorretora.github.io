@@ -1,0 +1,227 @@
+/* variaveis end */
+
+/* config gerais */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+    color: #000;
+  }
+  
+  /* config gerais end */
+  
+  /* capa start */
+  
+  .main .capa {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('/static/img/seguros/capa.jpg') no-repeat center -120px/cover;
+    display: flex;
+    align-items: center;
+    justify-content: justify;
+    text-align: center;
+    color: #fff;
+    flex-wrap: wrap;
+  }
+  
+  .main .capa .content {
+    position: relative;
+    left: 50px;
+    color: #fff;
+  }
+  
+  .main .capa .content .capa-texto h1, .main .capa .content .capa-texto p {
+    color: #fff;
+  }
+  
+  .arrowdown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 5;
+    animation: arrowdown 2s ease-in-out infinite alternate;
+  }
+  
+  .arrowdown i {
+    color: #ffffff;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.493); /* Ajuste a opacidade conforme necessário */
+    z-index: 1; /* Ajuste o z-index para garantir que o overlay fique atrás dos elementos principais */
+  }
+  
+  .capa-texto {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    max-width: 800px; /* Ajuste conforme necessário */
+    margin: 0 auto;
+  }
+  
+  .capa-texto h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+  
+  .capa-texto p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  
+  .btn {
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    transition: background 0.3s;
+    z-index: 2;
+  }
+  
+  .btn.primary {
+    background-color: transparent;
+    border: 1px solid;
+    color:  #fff;
+  }
+  
+  .btn.primary:hover {
+    background-color: #C3F73A;
+  }
+  
+  .btn.secondary {
+    background-color: #17a2b8;
+  }
+  
+  .btn.secondary:hover {
+    background-color: #117a8b;
+  }
+  
+  @keyframes arrowdown {
+    0% {
+        bottom: 40px;
+    }
+    100% {
+        bottom: 20px;
+    }
+  }
+  /* capa end */
+  
+  /* definicao start */
+  .definicao {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 60px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: 60vh;
+    background-color: #f8f9fa;
+    text-align: left;
+  }
+  
+  .definicao h2 {
+    text-align: left;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .definicao p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    text-align: justify;
+    max-width: 90%;
+  }
+  /* definicao end */
+  
+  /* carrossel */
+  .carrossel {
+    background-color: #f8f9fa;
+  }
+  
+  .carrossel h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  .carousel {
+    background-color: #f8f9fa;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 50vh;
+  }
+  
+  .carousel-container {
+    display: flex;
+    width: 100%;
+    animation: slide 31.5s infinite;
+  }
+  
+  .carousel-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  }
+  
+  .carousel-slide img {
+    width: 30%;
+    height: auto;
+    max-height: 80vh; /* Ajuste a altura máxima conforme necessário */
+    max-width: 80vw; /* Ajuste a largura máxima conforme necessário */
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    11.11% { transform: translateX(-100%); }
+    22.22% { transform: translateX(-200%); }
+    33.33% { transform: translateX(-300%); }
+    44.44% { transform: translateX(-400%); }
+    55.55% { transform: translateX(-500%); }
+    66.66% { transform: translateX(-600%); }
+    77.77% { transform: translateX(-700%); }
+    88.88% { transform: translateX(-800%); }
+    100% { transform: translateX(-900%); }
+  }
+  /* carrossel end */
+  
+  
+  
+  /*  modal */
+  
+  
+  form label {
+    font-weight: 600;
+  }
+  
+  
+  input.form-check-input {
+    border: 1.01px solid black;
+  }
