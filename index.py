@@ -25,6 +25,7 @@ def submit():
     cidade = request.form['cidade']
     planos = request.form.getlist('planos')
     abrangencia = request.form.getlist('abrangencia')
+    observacoes = request.form.get('informacoes', '')  # Capture the "Observações" field, defaulting to an empty string if not provided
 
     planos_selecionados = ", ".join(planos)
     abrangencia_selecionada = ", ".join(abrangencia)
@@ -32,6 +33,7 @@ def submit():
     # Formatando o número do telefone para o link do WhatsApp
     telefone_link = f"https://wa.me/{telefone}"
 
+    # Start building the email message
     mensagem = f"""
     <html>
         <body>
@@ -42,11 +44,20 @@ def submit():
             <p>Cidade: {cidade}</p>
             <p>Planos Selecionados: {planos_selecionados}</p>
             <p>Tipo de Abrangência: {abrangencia_selecionada}</p>
+    """
+
+    # Add "Observações" to the message if it's not empty
+    if observacoes:
+        mensagem += f"<p>Observações: {observacoes}</p>"
+
+    # Close the HTML body
+    mensagem += """
         </body>
     </html>
     """
 
-    if send_email(mensagem):
+    # Since this form submission does not include attachments, pass an empty list
+    if send_email(mensagem, []):  # Adding an empty list for attachments
         flash('Formulário enviado com sucesso!', 'success')
     else:
         flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
