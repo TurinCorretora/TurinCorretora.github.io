@@ -17,7 +17,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('/static/img/individual/capa.jpg') no-repeat center -200px/cover;
+  background: url('/static/img/individual/capa.jpg') no-repeat center  -200px/cover;
   display: flex;
   align-items: center;
   justify-content: justify;
@@ -224,4 +224,85 @@ form label {
 
 input.form-check-input {
   border: 1.01px solid black;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .main .capa {
+      text-align: center;
+      padding: 0 20px;
+      background: url('/static/img/individual/capa.jpg') no-repeat center center/cover;
+      
+  }
+
+  .main .capa .content {
+      left: 0;
+      padding: 0 20px;
+  }
+
+  .capa-texto h1 {
+      font-size: 2em;
+  }
+
+  .capa-texto p {
+      font-size: 1em;
+  }
+
+  .buttons {
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  .btn {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+  }
+
+  .definicao {
+      padding: 30px 20px;
+      height: auto;
+  }
+
+  .definicao p {
+      max-width: 100%;
+  }
+
+  .carousel-slide img {
+      width: 80%;
+      max-width: 100%;
+  }
+
+  .modal-dialog {
+      margin: 20px auto;
+  }
+}
+
+@media (max-width: 576px) {
+  
+  .capa-texto h1 {
+      font-size: 1.5em;
+  }
+
+  .capa-texto p {
+      font-size: 0.9em;
+  }
+
+  .carousel-slide img {
+      width: 100%;
+  }
+
+  .definicao {
+      padding: 20px 10px;
+  }
+
+  .definicao h2 {
+      font-size: 1.5em;
+  }
+
+  .definicao p {
+      font-size: 1em;
+  }
 }
