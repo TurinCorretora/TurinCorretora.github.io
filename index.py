@@ -8,6 +8,7 @@ from werkzeug.utils import secure_filename
 from email.mime.base import MIMEBase
 from email import encoders
 import uuid
+import tempfile
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'  # Adicione uma chave secreta para as mensagens flash
@@ -101,83 +102,77 @@ def generate_unique_filename(filename):
 
 @app.route('/cotar', methods=['POST'])
 def cotar():
-    nome = request.form['nome']
-    cpf = request.form['cpf']
-    idade = request.form['idade']
-    
-    cnh = request.files['cnh']
-    documento_veiculo = request.files['documento_veiculo']
-    comprovante_residencia = request.files['comprovante_residencia']
+    try:
+        # Captura os dados do formulário
+        nome = request.form['nome']
+        cpf = request.form['cpf']
+        idade = request.form['idade']
+        
+        cnh = request.files['cnh']
+        documento_veiculo = request.files['documento_veiculo']
+        comprovante_residencia = request.files['comprovante_residencia']
 
-    # Cria o diretório se ele não existir
-    if not os.path.exists(app.config['UPLOAD_FOLDER']):
-        os.makedirs(app.config['UPLOAD_FOLDER'])
-    
-    # Gerando nomes de arquivos únicos
-    cnh_filename = generate_unique_filename(secure_filename(cnh.filename))
-    documento_veiculo_filename = generate_unique_filename(secure_filename(documento_veiculo.filename))
-    comprovante_residencia_filename = generate_unique_filename(secure_filename(comprovante_residencia.filename))
-    
-    cnh_path = os.path.join(app.config['UPLOAD_FOLDER'], cnh_filename)
-    documento_veiculo_path = os.path.join(app.config['UPLOAD_FOLDER'], documento_veiculo_filename)
-    comprovante_residencia_path = os.path.join(app.config['UPLOAD_FOLDER'], comprovante_residencia_filename)
-    
-    # Salvando os arquivos com nomes únicos
-    cnh.save(cnh_path)
-    documento_veiculo.save(documento_veiculo_path)
-    comprovante_residencia.save(comprovante_residencia_path)
-    
-    # Continue com o resto dos dados do formulário como estava antes
-    email_form = request.form['email']
-    telefone = request.form['telefone']
-    
-    telefone_link = f"https://wa.me/{telefone}"
+        # Gera um arquivo temporário para armazenar as informações de depuração
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.txt') as temp_file:
+            temp_file.write(f"Nome: {nome}\n".encode())
+            temp_file.write(f"CPF: {cpf}\n".encode())
+            temp_file.write(f"Idade: {idade}\n".encode())
+            temp_file.write(f"Arquivos Recebidos: {cnh.filename}, {documento_veiculo.filename}, {comprovante_residencia.filename}\n".encode())
+            debug_file_path = temp_file.name
 
-    mensagem = f"""
-    <html>
-        <body>
-            <p>Nome: {nome}</p>
-            <p>CPF: {cpf}</p>
-            <p>Idade: {idade}</p>
-            <p>Email: {email_form}</p>
-            <p>Telefone: <a href="{telefone_link}">{telefone_link}</a></p>
-            <p>CNH: {cnh_filename}</p>
-            <p>Documento do Veículo: {documento_veiculo_filename}</p>
-            <p>Comprovante de Residência: {comprovante_residencia_filename}</p>
-        </body>
-    </html>
-    """
+        # Cria o diretório se ele não existir
+        if not os.path.exists(app.config['UPLOAD_FOLDER']):
+            os.makedirs(app.config['UPLOAD_FOLDER'])
+        
+        # Gerando nomes de arquivos únicos
+        cnh_filename = generate_unique_filename(secure_filename(cnh.filename))
+        documento_veiculo_filename = generate_unique_filename(secure_filename(documento_veiculo.filename))
+        comprovante_residencia_filename = generate_unique_filename(secure_filename(comprovante_residencia.filename))
+        
+        cnh_path = os.path.join(app.config['UPLOAD_FOLDER'], cnh_filename)
+        documento_veiculo_path = os.path.join(app.config['UPLOAD_FOLDER'], documento_veiculo_filename)
+        comprovante_residencia_path = os.path.join(app.config['UPLOAD_FOLDER'], comprovante_residencia_filename)
+        
+        # Salvando os arquivos com nomes únicos
+        cnh.save(cnh_path)
+        documento_veiculo.save(documento_veiculo_path)
+        comprovante_residencia.save(comprovante_residencia_path)
 
-    attachments = [cnh_path, documento_veiculo_path, comprovante_residencia_path]
+        # Adicione as informações relevantes ao arquivo de depuração
+        with open(debug_file_path, 'a') as temp_file:
+            temp_file.write(f"CNH salva em: {cnh_path}\n")
+            temp_file.write(f"Documento do Veículo salvo em: {documento_veiculo_path}\n")
+            temp_file.write(f"Comprovante de Residência salvo em: {comprovante_residencia_path}\n")
 
-    if send_email(mensagem, attachments):
-        flash('Formulário enviado com sucesso!', 'success')
-    else:
-        flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
+        # Enviar o e-mail com o arquivo de depuração como anexo
+        if send_email("Informações de Depuração", [], debug_file_path):
+            flash('Formulário enviado com sucesso!', 'success')
+        else:
+            flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
 
-    return redirect(url_for('seguros'))
+        return redirect(url_for('seguros'))
 
-def send_email(mensagem, attachments):
-    sender_email = email  # Substitua pela variável que contém seu email
+    except Exception as e:
+        print(f"Erro ao processar o formulário: {e}")
+        return "Ocorreu um erro ao processar o seu pedido. Tente novamente mais tarde."
+
+def send_email(subject, attachments, debug_file_path):
+    sender_email = email  # Seu email
     receiver_email = 'turincorretora@gmail.com'
-    password = senha  # Substitua pela variável que contém sua senha de aplicativo
+    password = senha  # Sua senha
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = receiver_email
-    msg['Subject'] = "Solicitação de Cotação"
+    msg['Subject'] = subject
 
-    # Anexar a mensagem HTML
-    msg.attach(MIMEText(mensagem, 'html'))
-
-    # Anexar arquivos
-    for file in attachments:
+    # Anexar arquivo de depuração
+    with open(debug_file_path, 'rb') as f:
         attachment = MIMEBase('application', 'octet-stream')
-        with open(file, 'rb') as file_content:
-            attachment.set_payload(file_content.read())
-        encoders.encode_base64(attachment)
-        attachment.add_header('Content-Disposition', f'attachment; filename={os.path.basename(file)}')
-        msg.attach(attachment)
+        attachment.set_payload(f.read())
+    encoders.encode_base64(attachment)
+    attachment.add_header('Content-Disposition', f'attachment; filename={os.path.basename(debug_file_path)}')
+    msg.attach(attachment)
 
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
