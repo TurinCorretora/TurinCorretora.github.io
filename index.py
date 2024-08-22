@@ -102,77 +102,61 @@ def generate_unique_filename(filename):
 
 @app.route('/cotar', methods=['POST'])
 def cotar():
-    try:
-        print("Iniciando o processamento do formulário de cotação")
-        
-        nome = request.form['nome']
-        cpf = request.form['cpf']
-        idade = request.form['idade']
-        print(f"Nome: {nome}, CPF: {cpf}, Idade: {idade}")
-        
-        cnh = request.files['cnh']
-        documento_veiculo = request.files['documento_veiculo']
-        comprovante_residencia = request.files['comprovante_residencia']
+    nome = request.form['nome']
+    cpf = request.form['cpf']
+    idade = request.form['idade']
+    
+    cnh = request.files['cnh']
+    documento_veiculo = request.files['documento_veiculo']
+    comprovante_residencia = request.files['comprovante_residencia']
 
-        # Cria o diretório se ele não existir
-        if not os.path.exists(app.config['UPLOAD_FOLDER']):
-            os.makedirs(app.config['UPLOAD_FOLDER'])
-            print(f"Diretório criado: {app.config['UPLOAD_FOLDER']}")
-        else:
-            print(f"Diretório já existente: {app.config['UPLOAD_FOLDER']}")
-        
-        # Gerando nomes de arquivos únicos
-        cnh_filename = generate_unique_filename(secure_filename(cnh.filename))
-        documento_veiculo_filename = generate_unique_filename(secure_filename(documento_veiculo.filename))
-        comprovante_residencia_filename = generate_unique_filename(secure_filename(comprovante_residencia.filename))
-        print(f"Nomes únicos gerados: CNH: {cnh_filename}, Documento Veículo: {documento_veiculo_filename}, Comprovante Residência: {comprovante_residencia_filename}")
-        
-        cnh_path = os.path.join(app.config['UPLOAD_FOLDER'], cnh_filename)
-        documento_veiculo_path = os.path.join(app.config['UPLOAD_FOLDER'], documento_veiculo_filename)
-        comprovante_residencia_path = os.path.join(app.config['UPLOAD_FOLDER'], comprovante_residencia_filename)
-        
-        # Salvando os arquivos com nomes únicos
-        cnh.save(cnh_path)
-        documento_veiculo.save(documento_veiculo_path)
-        comprovante_residencia.save(comprovante_residencia_path)
-        print(f"Arquivos salvos: CNH: {cnh_path}, Documento Veículo: {documento_veiculo_path}, Comprovante Residência: {comprovante_residencia_path}")
-        
-        # Continue com o resto dos dados do formulário como estava antes
-        email_form = request.form['email']
-        telefone = request.form['telefone']
-        print(f"Email: {email_form}, Telefone: {telefone}")
-        
-        telefone_link = f"https://wa.me/{telefone}"
+    # Cria o diretório se ele não existir
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
+    
+    # Gerando nomes de arquivos únicos
+    cnh_filename = generate_unique_filename(secure_filename(cnh.filename))
+    documento_veiculo_filename = generate_unique_filename(secure_filename(documento_veiculo.filename))
+    comprovante_residencia_filename = generate_unique_filename(secure_filename(comprovante_residencia.filename))
+    
+    cnh_path = os.path.join(app.config['UPLOAD_FOLDER'], cnh_filename)
+    documento_veiculo_path = os.path.join(app.config['UPLOAD_FOLDER'], documento_veiculo_filename)
+    comprovante_residencia_path = os.path.join(app.config['UPLOAD_FOLDER'], comprovante_residencia_filename)
+    
+    # Salvando os arquivos com nomes únicos
+    cnh.save(cnh_path)
+    documento_veiculo.save(documento_veiculo_path)
+    comprovante_residencia.save(comprovante_residencia_path)
+    
+    # Continue com o resto dos dados do formulário como estava antes
+    email_form = request.form['email']
+    telefone = request.form['telefone']
+    
+    telefone_link = f"https://wa.me/{telefone}"
 
-        mensagem = f"""
-        <html>
-            <body>
-                <p>Nome: {nome}</p>
-                <p>CPF: {cpf}</p>
-                <p>Idade: {idade}</p>
-                <p>Email: {email_form}</p>
-                <p>Telefone: <a href="{telefone_link}">{telefone_link}</a></p>
-                <p>CNH: {cnh_filename}</p>
-                <p>Documento do Veículo: {documento_veiculo_filename}</p>
-                <p>Comprovante de Residência: {comprovante_residencia_filename}</p>
-            </body>
-        </html>
-        """
+    mensagem = f"""
+    <html>
+        <body>
+            <p>Nome: {nome}</p>
+            <p>CPF: {cpf}</p>
+            <p>Idade: {idade}</p>
+            <p>Email: {email_form}</p>
+            <p>Telefone: <a href="{telefone_link}">{telefone_link}</a></p>
+            <p>CNH: {cnh_filename}</p>
+            <p>Documento do Veículo: {documento_veiculo_filename}</p>
+            <p>Comprovante de Residência: {comprovante_residencia_filename}</p>
+        </body>
+    </html>
+    """
 
-        attachments = [cnh_path, documento_veiculo_path, comprovante_residencia_path]
+    attachments = [cnh_path, documento_veiculo_path, comprovante_residencia_path]
 
-        if send_email(mensagem, attachments):
-            flash('Formulário enviado com sucesso!', 'success')
-            print("Formulário enviado com sucesso")
-        else:
-            flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
-            print("Erro ao enviar o formulário")
+    if send_email(mensagem, attachments):
+        flash('Formulário enviado com sucesso!', 'success')
+    else:
+        flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
 
-        return redirect(url_for('seguros'))
-    except Exception as e:
-        print(f"Erro no processamento do formulário: {e}")
-        flash('Ocorreu um erro ao processar seu pedido. Tente novamente mais tarde.', 'error')
-        return redirect(url_for('seguros'))
+    return redirect(url_for('seguros'))
 
 def send_email(mensagem, attachments):
     sender_email = email  # Substitua pela variável que contém seu email
