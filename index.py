@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from email.mime.base import MIMEBase
 from email import encoders
 import uuid
-import tempfile
+import io
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'  # Adicione uma chave secreta para as mensagens flash
@@ -65,7 +65,7 @@ def submit():
 
     return redirect(url_for('individual'))
 
-def send_email(mensagem):
+def send_email(mensagem, attachments):
     sender_email = email
     receiver_email = 'turincorretora@gmail.com'
     password = senha
@@ -89,11 +89,6 @@ def send_email(mensagem):
         print(f"Erro ao enviar email: {e}")
         return False
 
-
-# Defina o diretório de upload (pasta de downloads)
-UPLOAD_FOLDER = os.path.join(os.path.expanduser('~'), 'Downloads', 'uploads')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 def generate_unique_filename(filename):
     """Gera um nome de arquivo único, utilizando UUID."""
     unique_id = str(uuid.uuid4())
@@ -110,24 +105,16 @@ def cotar():
     documento_veiculo = request.files['documento_veiculo']
     comprovante_residencia = request.files['comprovante_residencia']
 
-    # Cria o diretório se ele não existir
-    if not os.path.exists(app.config['UPLOAD_FOLDER']):
-        os.makedirs(app.config['UPLOAD_FOLDER'])
-    
     # Gerando nomes de arquivos únicos
     cnh_filename = generate_unique_filename(secure_filename(cnh.filename))
     documento_veiculo_filename = generate_unique_filename(secure_filename(documento_veiculo.filename))
     comprovante_residencia_filename = generate_unique_filename(secure_filename(comprovante_residencia.filename))
-    
-    cnh_path = os.path.join(app.config['UPLOAD_FOLDER'], cnh_filename)
-    documento_veiculo_path = os.path.join(app.config['UPLOAD_FOLDER'], documento_veiculo_filename)
-    comprovante_residencia_path = os.path.join(app.config['UPLOAD_FOLDER'], comprovante_residencia_filename)
-    
-    # Salvando os arquivos com nomes únicos
-    cnh.save(cnh_path)
-    documento_veiculo.save(documento_veiculo_path)
-    comprovante_residencia.save(comprovante_residencia_path)
-    
+
+    # Armazena os arquivos em memória temporária
+    cnh_stream = io.BytesIO(cnh.read())
+    documento_veiculo_stream = io.BytesIO(documento_veiculo.read())
+    comprovante_residencia_stream = io.BytesIO(comprovante_residencia.read())
+
     # Continue com o resto dos dados do formulário como estava antes
     email_form = request.form['email']
     telefone = request.form['telefone']
@@ -149,16 +136,20 @@ def cotar():
     </html>
     """
 
-    attachments = [cnh_path, documento_veiculo_path, comprovante_residencia_path]
+    attachments = [
+        (cnh_stream, cnh_filename),
+        (documento_veiculo_stream, documento_veiculo_filename),
+        (comprovante_residencia_stream, comprovante_residencia_filename)
+    ]
 
-    if send_email(mensagem, attachments):
+    if send_email_with_attachments(mensagem, attachments):
         flash('Formulário enviado com sucesso!', 'success')
     else:
         flash('Erro ao enviar o formulário. Tente novamente mais tarde.', 'error')
 
     return redirect(url_for('seguros'))
 
-def send_email(mensagem, attachments):
+def send_email_with_attachments(mensagem, attachments):
     sender_email = email  # Substitua pela variável que contém seu email
     receiver_email = 'turincorretora@gmail.com'
     password = senha  # Substitua pela variável que contém sua senha de aplicativo
@@ -172,12 +163,11 @@ def send_email(mensagem, attachments):
     msg.attach(MIMEText(mensagem, 'html'))
 
     # Anexar arquivos
-    for file in attachments:
+    for file_stream, filename in attachments:
         attachment = MIMEBase('application', 'octet-stream')
-        with open(file, 'rb') as file_content:
-            attachment.set_payload(file_content.read())
+        attachment.set_payload(file_stream.getvalue())
         encoders.encode_base64(attachment)
-        attachment.add_header('Content-Disposition', f'attachment; filename={os.path.basename(file)}')
+        attachment.add_header('Content-Disposition', f'attachment; filename={filename}')
         msg.attach(attachment)
 
     try:
